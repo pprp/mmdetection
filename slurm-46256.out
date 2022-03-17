@@ -1,0 +1,537 @@
+/data/run01/scv6681/project/mmdetection/mmdet/utils/setup_env.py:43: UserWarning: Setting MKL_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed.
+  f'Setting MKL_NUM_THREADS environment variable for each process '
+/data/run01/scv6681/project/mmdetection/mmdet/utils/setup_env.py:43: UserWarning: Setting MKL_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed.
+  f'Setting MKL_NUM_THREADS environment variable for each process '
+/data/run01/scv6681/project/mmdetection/mmdet/utils/setup_env.py:43: UserWarning: Setting MKL_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed.
+  f'Setting MKL_NUM_THREADS environment variable for each process '
+/data/run01/scv6681/project/mmdetection/mmdet/utils/setup_env.py:43: UserWarning: Setting MKL_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed.
+  f'Setting MKL_NUM_THREADS environment variable for each process '
+/data/run01/scv6681/project/mmdetection/mmdet/utils/setup_env.py:43: UserWarning: Setting MKL_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed.
+  f'Setting MKL_NUM_THREADS environment variable for each process '
+/data/run01/scv6681/project/mmdetection/mmdet/utils/setup_env.py:43: UserWarning: Setting MKL_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed.
+  f'Setting MKL_NUM_THREADS environment variable for each process '
+/data/run01/scv6681/project/mmdetection/mmdet/utils/setup_env.py:43: UserWarning: Setting MKL_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed.
+  f'Setting MKL_NUM_THREADS environment variable for each process '
+/data/run01/scv6681/project/mmdetection/mmdet/utils/setup_env.py:43: UserWarning: Setting MKL_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed.
+  f'Setting MKL_NUM_THREADS environment variable for each process '
+2022-03-17 09:37:24,800 - mmdet - INFO - Environment info:
+------------------------------------------------------------
+sys.platform: linux
+Python: 3.7.11 (default, Jul 27 2021, 14:32:16) [GCC 7.5.0]
+CUDA available: True
+GPU 0,1,2,3,4,5,6,7: Tesla V100-SXM2-32GB
+CUDA_HOME: /data/apps/cuda/10.1
+NVCC: Cuda compilation tools, release 10.1, V10.1.105
+GCC: gcc (GCC) 4.8.5 20150623 (Red Hat 4.8.5-44)
+PyTorch: 1.7.1
+PyTorch compiling details: PyTorch built with:
+  - GCC 7.3
+  - C++ Version: 201402
+  - Intel(R) Math Kernel Library Version 2020.0.0 Product Build 20191122 for Intel(R) 64 architecture applications
+  - Intel(R) MKL-DNN v1.6.0 (Git Hash 5ef631a030a6f73131c77892041042805a06064f)
+  - OpenMP 201511 (a.k.a. OpenMP 4.5)
+  - NNPACK is enabled
+  - CPU capability usage: AVX2
+  - CUDA Runtime 10.2
+  - NVCC architecture flags: -gencode;arch=compute_37,code=sm_37;-gencode;arch=compute_50,code=sm_50;-gencode;arch=compute_60,code=sm_60;-gencode;arch=compute_70,code=sm_70;-gencode;arch=compute_75,code=sm_75
+  - CuDNN 7.6.5
+  - Magma 2.5.2
+  - Build settings: BLAS=MKL, BUILD_TYPE=Release, CXX_FLAGS= -Wno-deprecated -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -fopenmp -DNDEBUG -DUSE_FBGEMM -DUSE_QNNPACK -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DUSE_VULKAN_WRAPPER -O2 -fPIC -Wno-narrowing -Wall -Wextra -Werror=return-type -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-sign-compare -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function -Wno-unused-result -Wno-unused-local-typedefs -Wno-strict-overflow -Wno-strict-aliasing -Wno-error=deprecated-declarations -Wno-stringop-overflow -Wno-psabi -Wno-error=pedantic -Wno-error=redundant-decls -Wno-error=old-style-cast -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, PERF_WITH_AVX512=1, USE_CUDA=ON, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, 
+
+TorchVision: 0.8.2
+OpenCV: 4.5.5
+MMCV: 1.4.4
+MMCV Compiler: GCC 6.3
+MMCV CUDA Compiler: 10.1
+MMDetection: 2.22.0+ae69ca1
+------------------------------------------------------------
+
+2022-03-17 09:37:25,224 - mmdet - INFO - Distributed training: True
+2022-03-17 09:37:25,558 - mmdet - INFO - Config:
+dataset_type = 'CocoDataset'
+data_root = 'data/coco/'
+img_norm_cfg = dict(
+    mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
+train_pipeline = [
+    dict(type='LoadImageFromFile', to_float32=True, color_type='color'),
+    dict(type='LoadAnnotations', with_bbox=True),
+    dict(
+        type='PhotoMetricDistortion',
+        brightness_delta=32,
+        contrast_range=(0.5, 1.5),
+        saturation_range=(0.5, 1.5),
+        hue_delta=18),
+    dict(
+        type='RandomCenterCropPad',
+        crop_size=(512, 512),
+        ratios=(0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3),
+        mean=[0, 0, 0],
+        std=[1, 1, 1],
+        to_rgb=True,
+        test_pad_mode=None),
+    dict(type='Resize', img_scale=(512, 512), keep_ratio=True),
+    dict(type='RandomFlip', flip_ratio=0.5),
+    dict(
+        type='Normalize',
+        mean=[123.675, 116.28, 103.53],
+        std=[58.395, 57.12, 57.375],
+        to_rgb=True),
+    dict(type='DefaultFormatBundle'),
+    dict(type='Collect', keys=['img', 'gt_bboxes', 'gt_labels'])
+]
+test_pipeline = [
+    dict(type='LoadImageFromFile', to_float32=True),
+    dict(
+        type='MultiScaleFlipAug',
+        scale_factor=1.0,
+        flip=False,
+        transforms=[
+            dict(type='Resize', keep_ratio=True),
+            dict(
+                type='RandomCenterCropPad',
+                ratios=None,
+                border=None,
+                mean=[0, 0, 0],
+                std=[1, 1, 1],
+                to_rgb=True,
+                test_mode=True,
+                test_pad_mode=['logical_or', 31],
+                test_pad_add_pix=1),
+            dict(type='RandomFlip'),
+            dict(
+                type='Normalize',
+                mean=[123.675, 116.28, 103.53],
+                std=[58.395, 57.12, 57.375],
+                to_rgb=True),
+            dict(type='DefaultFormatBundle'),
+            dict(
+                type='Collect',
+                meta_keys=('filename', 'ori_shape', 'img_shape', 'pad_shape',
+                           'scale_factor', 'flip', 'flip_direction',
+                           'img_norm_cfg', 'border'),
+                keys=['img'])
+        ])
+]
+data = dict(
+    samples_per_gpu=16,
+    workers_per_gpu=4,
+    train=dict(
+        type='RepeatDataset',
+        times=5,
+        dataset=dict(
+            type='CocoDataset',
+            ann_file='data/coco/annotations/instances_train2017.json',
+            img_prefix='data/coco/train2017/',
+            pipeline=[
+                dict(
+                    type='LoadImageFromFile',
+                    to_float32=True,
+                    color_type='color'),
+                dict(type='LoadAnnotations', with_bbox=True),
+                dict(
+                    type='PhotoMetricDistortion',
+                    brightness_delta=32,
+                    contrast_range=(0.5, 1.5),
+                    saturation_range=(0.5, 1.5),
+                    hue_delta=18),
+                dict(
+                    type='RandomCenterCropPad',
+                    crop_size=(512, 512),
+                    ratios=(0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3),
+                    mean=[0, 0, 0],
+                    std=[1, 1, 1],
+                    to_rgb=True,
+                    test_pad_mode=None),
+                dict(type='Resize', img_scale=(512, 512), keep_ratio=True),
+                dict(type='RandomFlip', flip_ratio=0.5),
+                dict(
+                    type='Normalize',
+                    mean=[123.675, 116.28, 103.53],
+                    std=[58.395, 57.12, 57.375],
+                    to_rgb=True),
+                dict(type='DefaultFormatBundle'),
+                dict(type='Collect', keys=['img', 'gt_bboxes', 'gt_labels'])
+            ])),
+    val=dict(
+        type='CocoDataset',
+        ann_file='/data/public/coco2017/annotations/instances_val2017.json',
+        img_prefix='/data/public/coco2017/val2017/',
+        pipeline=[
+            dict(type='LoadImageFromFile', to_float32=True),
+            dict(
+                type='MultiScaleFlipAug',
+                scale_factor=1.0,
+                flip=False,
+                transforms=[
+                    dict(type='Resize', keep_ratio=True),
+                    dict(
+                        type='RandomCenterCropPad',
+                        ratios=None,
+                        border=None,
+                        mean=[0, 0, 0],
+                        std=[1, 1, 1],
+                        to_rgb=True,
+                        test_mode=True,
+                        test_pad_mode=['logical_or', 31],
+                        test_pad_add_pix=1),
+                    dict(type='RandomFlip'),
+                    dict(
+                        type='Normalize',
+                        mean=[123.675, 116.28, 103.53],
+                        std=[58.395, 57.12, 57.375],
+                        to_rgb=True),
+                    dict(type='DefaultFormatBundle'),
+                    dict(
+                        type='Collect',
+                        meta_keys=('filename', 'ori_shape', 'img_shape',
+                                   'pad_shape', 'scale_factor', 'flip',
+                                   'flip_direction', 'img_norm_cfg', 'border'),
+                        keys=['img'])
+                ])
+        ]),
+    test=dict(
+        type='CocoDataset',
+        ann_file='/data/public/coco2017/annotations/instances_val2017.json',
+        img_prefix='/data/public/coco2017/val2017/',
+        pipeline=[
+            dict(type='LoadImageFromFile', to_float32=True),
+            dict(
+                type='MultiScaleFlipAug',
+                scale_factor=1.0,
+                flip=False,
+                transforms=[
+                    dict(type='Resize', keep_ratio=True),
+                    dict(
+                        type='RandomCenterCropPad',
+                        ratios=None,
+                        border=None,
+                        mean=[0, 0, 0],
+                        std=[1, 1, 1],
+                        to_rgb=True,
+                        test_mode=True,
+                        test_pad_mode=['logical_or', 31],
+                        test_pad_add_pix=1),
+                    dict(type='RandomFlip'),
+                    dict(
+                        type='Normalize',
+                        mean=[123.675, 116.28, 103.53],
+                        std=[58.395, 57.12, 57.375],
+                        to_rgb=True),
+                    dict(type='DefaultFormatBundle'),
+                    dict(
+                        type='Collect',
+                        meta_keys=('filename', 'ori_shape', 'img_shape',
+                                   'pad_shape', 'scale_factor', 'flip',
+                                   'flip_direction', 'img_norm_cfg', 'border'),
+                        keys=['img'])
+                ])
+        ]))
+evaluation = dict(interval=1, metric='bbox')
+optimizer = dict(type='SGD', lr=0.02, momentum=0.9, weight_decay=0.0001)
+optimizer_config = dict(grad_clip=dict(max_norm=35, norm_type=2))
+lr_config = dict(
+    policy='step',
+    warmup='linear',
+    warmup_iters=1000,
+    warmup_ratio=0.001,
+    step=[18, 24])
+runner = dict(type='EpochBasedRunner', max_epochs=28)
+checkpoint_config = dict(interval=1)
+log_config = dict(interval=50, hooks=[dict(type='TextLoggerHook')])
+custom_hooks = [dict(type='NumClassCheckHook')]
+dist_params = dict(backend='nccl')
+log_level = 'INFO'
+load_from = None
+resume_from = None
+workflow = [('train', 1)]
+opencv_num_threads = 0
+mp_start_method = 'fork'
+model = dict(
+    type='CenterNet',
+    backbone=dict(
+        type='ResNet',
+        depth=18,
+        norm_eval=False,
+        norm_cfg=dict(type='BN'),
+        init_cfg=dict(type='Pretrained', checkpoint='torchvision://resnet18')),
+    neck=dict(
+        type='CTResNetNeck',
+        in_channel=512,
+        num_deconv_filters=(256, 128, 64),
+        num_deconv_kernels=(4, 4, 4),
+        use_dcn=False),
+    bbox_head=dict(
+        type='CenterNetHead',
+        num_classes=80,
+        in_channel=64,
+        feat_channel=64,
+        loss_center_heatmap=dict(type='GaussianFocalLoss', loss_weight=1.0),
+        loss_wh=dict(type='L1Loss', loss_weight=0.1),
+        loss_offset=dict(type='L1Loss', loss_weight=1.0)),
+    train_cfg=None,
+    test_cfg=dict(topk=100, local_maximum_kernel=3, max_per_img=100))
+work_dir = './work_dirs/centernet_resnet18_140e_coco'
+auto_resume = False
+gpu_ids = range(0, 8)
+
+2022-03-17 09:37:25,562 - mmdet - INFO - Set random seed to 612889864, deterministic: False
+2022-03-17 09:37:25,716 - mmdet - INFO - initialize ResNet with init_cfg {'type': 'Pretrained', 'checkpoint': 'torchvision://resnet18'}
+2022-03-17 09:37:25,717 - mmcv - INFO - load model from: torchvision://resnet18
+2022-03-17 09:37:25,717 - mmcv - INFO - load checkpoint from torchvision path: torchvision://resnet18
+2022-03-17 09:37:25,947 - mmcv - WARNING - The model and loaded state dict do not match exactly
+
+unexpected key in source state_dict: fc.weight, fc.bias
+
+/data/run01/scv6681/project/mmdetection/mmdet/datasets/api_wrappers/coco_api.py:22: UserWarning: mmpycocotools is deprecated. Please install official pycocotools by "pip install pycocotools"
+  UserWarning)
+loading annotations into memory...
+Traceback (most recent call last):
+  File "/data/run01/scv6681/project/github/mmcv/mmcv/utils/registry.py", line 52, in build_from_cfg
+    return obj_cls(**args)
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/custom.py", line 95, in __init__
+    self.data_infos = self.load_annotations(local_path)
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/coco.py", line 72, in load_annotations
+    self.coco = COCO(ann_file)
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/api_wrappers/coco_api.py", line 23, in __init__
+    super().__init__(annotation_file=annotation_file)
+  File "/data/home/scv6681/.conda/envs/pool/lib/python3.7/site-packages/pycocotools/coco.py", line 84, in __init__
+    with open(annotation_file, 'r') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'data/coco/annotations/instances_train2017.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "tools/train.py", line 209, in <module>
+    main()
+  File "tools/train.py", line 185, in main
+    datasets = [build_dataset(cfg.data.train)]
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/builder.py", line 69, in build_dataset
+    build_dataset(cfg['dataset'], default_args), cfg['times'])
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/builder.py", line 81, in build_dataset
+    dataset = build_from_cfg(cfg, DATASETS, default_args)
+  File "/data/run01/scv6681/project/github/mmcv/mmcv/utils/registry.py", line 55, in build_from_cfg
+    raise type(e)(f'{obj_cls.__name__}: {e}')
+FileNotFoundError: CocoDataset: [Errno 2] No such file or directory: 'data/coco/annotations/instances_train2017.json'
+/data/run01/scv6681/project/mmdetection/mmdet/datasets/api_wrappers/coco_api.py:22: UserWarning: mmpycocotools is deprecated. Please install official pycocotools by "pip install pycocotools"
+  UserWarning)
+loading annotations into memory...
+Traceback (most recent call last):
+  File "/data/run01/scv6681/project/github/mmcv/mmcv/utils/registry.py", line 52, in build_from_cfg
+    return obj_cls(**args)
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/custom.py", line 95, in __init__
+    self.data_infos = self.load_annotations(local_path)
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/coco.py", line 72, in load_annotations
+    self.coco = COCO(ann_file)
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/api_wrappers/coco_api.py", line 23, in __init__
+    super().__init__(annotation_file=annotation_file)
+  File "/data/home/scv6681/.conda/envs/pool/lib/python3.7/site-packages/pycocotools/coco.py", line 84, in __init__
+    with open(annotation_file, 'r') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'data/coco/annotations/instances_train2017.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "tools/train.py", line 209, in <module>
+    main()
+  File "tools/train.py", line 185, in main
+/data/run01/scv6681/project/mmdetection/mmdet/datasets/api_wrappers/coco_api.py:22: UserWarning: mmpycocotools is deprecated. Please install official pycocotools by "pip install pycocotools"
+  UserWarning)
+loading annotations into memory...
+Traceback (most recent call last):
+  File "/data/run01/scv6681/project/github/mmcv/mmcv/utils/registry.py", line 52, in build_from_cfg
+    datasets = [build_dataset(cfg.data.train)]
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/builder.py", line 69, in build_dataset
+/data/run01/scv6681/project/mmdetection/mmdet/datasets/api_wrappers/coco_api.py:22: UserWarning: mmpycocotools is deprecated. Please install official pycocotools by "pip install pycocotools"
+  UserWarning)
+loading annotations into memory...
+Traceback (most recent call last):
+  File "/data/run01/scv6681/project/github/mmcv/mmcv/utils/registry.py", line 52, in build_from_cfg
+    return obj_cls(**args)
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/custom.py", line 95, in __init__
+    build_dataset(cfg['dataset'], default_args), cfg['times'])
+/data/run01/scv6681/project/mmdetection/mmdet/datasets/api_wrappers/coco_api.py:22: UserWarning: mmpycocotools is deprecated. Please install official pycocotools by "pip install pycocotools"
+  UserWarning)
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/builder.py", line 81, in build_dataset
+loading annotations into memory...
+Traceback (most recent call last):
+  File "/data/run01/scv6681/project/github/mmcv/mmcv/utils/registry.py", line 52, in build_from_cfg
+        self.data_infos = self.load_annotations(local_path)return obj_cls(**args)
+
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/coco.py", line 72, in load_annotations
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/custom.py", line 95, in __init__
+    dataset = build_from_cfg(cfg, DATASETS, default_args)
+  File "/data/run01/scv6681/project/github/mmcv/mmcv/utils/registry.py", line 55, in build_from_cfg
+    return obj_cls(**args)
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/custom.py", line 95, in __init__
+        self.data_infos = self.load_annotations(local_path)self.coco = COCO(ann_file)
+
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/coco.py", line 72, in load_annotations
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/api_wrappers/coco_api.py", line 23, in __init__
+    raise type(e)(f'{obj_cls.__name__}: {e}')
+FileNotFoundError: CocoDataset: [Errno 2] No such file or directory: 'data/coco/annotations/instances_train2017.json'
+    self.data_infos = self.load_annotations(local_path)
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/coco.py", line 72, in load_annotations
+    self.coco = COCO(ann_file)
+      File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/api_wrappers/coco_api.py", line 23, in __init__
+super().__init__(annotation_file=annotation_file)
+  File "/data/home/scv6681/.conda/envs/pool/lib/python3.7/site-packages/pycocotools/coco.py", line 84, in __init__
+    self.coco = COCO(ann_file)
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/api_wrappers/coco_api.py", line 23, in __init__
+    super().__init__(annotation_file=annotation_file)
+  File "/data/home/scv6681/.conda/envs/pool/lib/python3.7/site-packages/pycocotools/coco.py", line 84, in __init__
+    with open(annotation_file, 'r') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'data/coco/annotations/instances_train2017.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "tools/train.py", line 209, in <module>
+    super().__init__(annotation_file=annotation_file)
+  File "/data/home/scv6681/.conda/envs/pool/lib/python3.7/site-packages/pycocotools/coco.py", line 84, in __init__
+    with open(annotation_file, 'r') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'data/coco/annotations/instances_train2017.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "tools/train.py", line 209, in <module>
+    main()
+  File "tools/train.py", line 185, in main
+    with open(annotation_file, 'r') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'data/coco/annotations/instances_train2017.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "tools/train.py", line 209, in <module>
+    main()
+  File "tools/train.py", line 185, in main
+    datasets = [build_dataset(cfg.data.train)]
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/builder.py", line 69, in build_dataset
+    main()
+  File "tools/train.py", line 185, in main
+    datasets = [build_dataset(cfg.data.train)]
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/builder.py", line 69, in build_dataset
+    build_dataset(cfg['dataset'], default_args), cfg['times'])
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/builder.py", line 81, in build_dataset
+    build_dataset(cfg['dataset'], default_args), cfg['times'])
+      File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/builder.py", line 81, in build_dataset
+datasets = [build_dataset(cfg.data.train)]
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/builder.py", line 69, in build_dataset
+    dataset = build_from_cfg(cfg, DATASETS, default_args)    
+dataset = build_from_cfg(cfg, DATASETS, default_args)
+  File "/data/run01/scv6681/project/github/mmcv/mmcv/utils/registry.py", line 55, in build_from_cfg
+  File "/data/run01/scv6681/project/github/mmcv/mmcv/utils/registry.py", line 55, in build_from_cfg
+    build_dataset(cfg['dataset'], default_args), cfg['times'])
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/builder.py", line 81, in build_dataset
+/data/run01/scv6681/project/mmdetection/mmdet/datasets/api_wrappers/coco_api.py:22: UserWarning: mmpycocotools is deprecated. Please install official pycocotools by "pip install pycocotools"
+  UserWarning)
+loading annotations into memory...    
+raise type(e)(f'{obj_cls.__name__}: {e}')
+FileNotFoundError: CocoDataset: [Errno 2] No such file or directory: 'data/coco/annotations/instances_train2017.json'
+Traceback (most recent call last):
+  File "/data/run01/scv6681/project/github/mmcv/mmcv/utils/registry.py", line 52, in build_from_cfg
+    raise type(e)(f'{obj_cls.__name__}: {e}')/data/run01/scv6681/project/mmdetection/mmdet/datasets/api_wrappers/coco_api.py:22: UserWarning: mmpycocotools is deprecated. Please install official pycocotools by "pip install pycocotools"
+  UserWarning)
+
+    loading annotations into memory...FileNotFoundError
+: CocoDataset: [Errno 2] No such file or directory: 'data/coco/annotations/instances_train2017.json'dataset = build_from_cfg(cfg, DATASETS, default_args)
+
+  File "/data/run01/scv6681/project/github/mmcv/mmcv/utils/registry.py", line 55, in build_from_cfg
+Traceback (most recent call last):
+  File "/data/run01/scv6681/project/github/mmcv/mmcv/utils/registry.py", line 52, in build_from_cfg
+    return obj_cls(**args)
+      File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/custom.py", line 95, in __init__
+raise type(e)(f'{obj_cls.__name__}: {e}')
+FileNotFoundError: CocoDataset: [Errno 2] No such file or directory: 'data/coco/annotations/instances_train2017.json'
+    return obj_cls(**args)
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/custom.py", line 95, in __init__
+/data/run01/scv6681/project/mmdetection/mmdet/datasets/api_wrappers/coco_api.py:22: UserWarning: mmpycocotools is deprecated. Please install official pycocotools by "pip install pycocotools"
+  UserWarning)
+    self.data_infos = self.load_annotations(local_path)loading annotations into memory...
+
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/coco.py", line 72, in load_annotations
+Traceback (most recent call last):
+  File "/data/run01/scv6681/project/github/mmcv/mmcv/utils/registry.py", line 52, in build_from_cfg
+    self.data_infos = self.load_annotations(local_path)
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/coco.py", line 72, in load_annotations
+    self.coco = COCO(ann_file)
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/api_wrappers/coco_api.py", line 23, in __init__
+    self.coco = COCO(ann_file)
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/api_wrappers/coco_api.py", line 23, in __init__
+    return obj_cls(**args)
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/custom.py", line 95, in __init__
+    super().__init__(annotation_file=annotation_file)
+  File "/data/home/scv6681/.conda/envs/pool/lib/python3.7/site-packages/pycocotools/coco.py", line 84, in __init__
+    super().__init__(annotation_file=annotation_file)
+  File "/data/home/scv6681/.conda/envs/pool/lib/python3.7/site-packages/pycocotools/coco.py", line 84, in __init__
+    self.data_infos = self.load_annotations(local_path)
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/coco.py", line 72, in load_annotations
+    with open(annotation_file, 'r') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'data/coco/annotations/instances_train2017.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "tools/train.py", line 209, in <module>
+    with open(annotation_file, 'r') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'data/coco/annotations/instances_train2017.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "tools/train.py", line 209, in <module>
+    main()
+  File "tools/train.py", line 185, in main
+    self.coco = COCO(ann_file)
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/api_wrappers/coco_api.py", line 23, in __init__
+    main()
+  File "tools/train.py", line 185, in main
+    datasets = [build_dataset(cfg.data.train)]
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/builder.py", line 69, in build_dataset
+    datasets = [build_dataset(cfg.data.train)]
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/builder.py", line 69, in build_dataset
+    super().__init__(annotation_file=annotation_file)
+  File "/data/home/scv6681/.conda/envs/pool/lib/python3.7/site-packages/pycocotools/coco.py", line 84, in __init__
+    build_dataset(cfg['dataset'], default_args), cfg['times'])
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/builder.py", line 81, in build_dataset
+    build_dataset(cfg['dataset'], default_args), cfg['times'])
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/builder.py", line 81, in build_dataset
+    with open(annotation_file, 'r') as f:
+FileNotFoundError    : dataset = build_from_cfg(cfg, DATASETS, default_args)[Errno 2] No such file or directory: 'data/coco/annotations/instances_train2017.json'
+
+  File "/data/run01/scv6681/project/github/mmcv/mmcv/utils/registry.py", line 55, in build_from_cfg
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "tools/train.py", line 209, in <module>
+    dataset = build_from_cfg(cfg, DATASETS, default_args)
+  File "/data/run01/scv6681/project/github/mmcv/mmcv/utils/registry.py", line 55, in build_from_cfg
+    raise type(e)(f'{obj_cls.__name__}: {e}')
+FileNotFoundError: CocoDataset: [Errno 2] No such file or directory: 'data/coco/annotations/instances_train2017.json'
+    main()
+  File "tools/train.py", line 185, in main
+    raise type(e)(f'{obj_cls.__name__}: {e}')
+FileNotFoundError: CocoDataset: [Errno 2] No such file or directory: 'data/coco/annotations/instances_train2017.json'
+    datasets = [build_dataset(cfg.data.train)]
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/builder.py", line 69, in build_dataset
+    build_dataset(cfg['dataset'], default_args), cfg['times'])
+  File "/data/run01/scv6681/project/mmdetection/mmdet/datasets/builder.py", line 81, in build_dataset
+    dataset = build_from_cfg(cfg, DATASETS, default_args)
+  File "/data/run01/scv6681/project/github/mmcv/mmcv/utils/registry.py", line 55, in build_from_cfg
+    raise type(e)(f'{obj_cls.__name__}: {e}')
+FileNotFoundError: CocoDataset: [Errno 2] No such file or directory: 'data/coco/annotations/instances_train2017.json'
+Traceback (most recent call last):
+  File "/data/home/scv6681/.conda/envs/pool/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/data/home/scv6681/.conda/envs/pool/lib/python3.7/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/data/home/scv6681/.conda/envs/pool/lib/python3.7/site-packages/torch/distributed/launch.py", line 260, in <module>
+    main()
+  File "/data/home/scv6681/.conda/envs/pool/lib/python3.7/site-packages/torch/distributed/launch.py", line 256, in main
+    cmd=cmd)
+subprocess.CalledProcessError: Command '['/data/home/scv6681/.conda/envs/pool/bin/python', '-u', 'tools/train.py', '--local_rank=7', './configs/centernet/centernet_resnet18_140e_coco.py', '--launcher', 'pytorch']' returned non-zero exit status 1.
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************

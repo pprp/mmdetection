@@ -1,0 +1,518 @@
+/data/run01/scv6681/project/mmdetection/mmdet/utils/setup_env.py:43: UserWarning: Setting MKL_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed.
+  f'Setting MKL_NUM_THREADS environment variable for each process '
+/data/run01/scv6681/project/mmdetection/mmdet/utils/setup_env.py:43: UserWarning: Setting MKL_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed.
+  f'Setting MKL_NUM_THREADS environment variable for each process '
+/data/run01/scv6681/project/mmdetection/mmdet/utils/setup_env.py:43: UserWarning: Setting MKL_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed.
+  f'Setting MKL_NUM_THREADS environment variable for each process '
+/data/run01/scv6681/project/mmdetection/mmdet/utils/setup_env.py:43: UserWarning: Setting MKL_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed.
+  f'Setting MKL_NUM_THREADS environment variable for each process '
+/data/run01/scv6681/project/mmdetection/mmdet/utils/setup_env.py:43: UserWarning: Setting MKL_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed.
+  f'Setting MKL_NUM_THREADS environment variable for each process '
+/data/run01/scv6681/project/mmdetection/mmdet/utils/setup_env.py:43: UserWarning: Setting MKL_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed.
+  f'Setting MKL_NUM_THREADS environment variable for each process '
+/data/run01/scv6681/project/mmdetection/mmdet/utils/setup_env.py:43: UserWarning: Setting MKL_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed.
+  f'Setting MKL_NUM_THREADS environment variable for each process '
+/data/run01/scv6681/project/mmdetection/mmdet/utils/setup_env.py:43: UserWarning: Setting MKL_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed.
+  f'Setting MKL_NUM_THREADS environment variable for each process '
+2022-03-17 09:38:45,540 - mmdet - INFO - Environment info:
+------------------------------------------------------------
+sys.platform: linux
+Python: 3.7.11 (default, Jul 27 2021, 14:32:16) [GCC 7.5.0]
+CUDA available: True
+GPU 0,1,2,3,4,5,6,7: Tesla V100-SXM2-32GB
+CUDA_HOME: /data/apps/cuda/10.1
+NVCC: Cuda compilation tools, release 10.1, V10.1.105
+GCC: gcc (GCC) 4.8.5 20150623 (Red Hat 4.8.5-44)
+PyTorch: 1.7.1
+PyTorch compiling details: PyTorch built with:
+  - GCC 7.3
+  - C++ Version: 201402
+  - Intel(R) Math Kernel Library Version 2020.0.0 Product Build 20191122 for Intel(R) 64 architecture applications
+  - Intel(R) MKL-DNN v1.6.0 (Git Hash 5ef631a030a6f73131c77892041042805a06064f)
+  - OpenMP 201511 (a.k.a. OpenMP 4.5)
+  - NNPACK is enabled
+  - CPU capability usage: AVX2
+  - CUDA Runtime 10.2
+  - NVCC architecture flags: -gencode;arch=compute_37,code=sm_37;-gencode;arch=compute_50,code=sm_50;-gencode;arch=compute_60,code=sm_60;-gencode;arch=compute_70,code=sm_70;-gencode;arch=compute_75,code=sm_75
+  - CuDNN 7.6.5
+  - Magma 2.5.2
+  - Build settings: BLAS=MKL, BUILD_TYPE=Release, CXX_FLAGS= -Wno-deprecated -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -fopenmp -DNDEBUG -DUSE_FBGEMM -DUSE_QNNPACK -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DUSE_VULKAN_WRAPPER -O2 -fPIC -Wno-narrowing -Wall -Wextra -Werror=return-type -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-sign-compare -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function -Wno-unused-result -Wno-unused-local-typedefs -Wno-strict-overflow -Wno-strict-aliasing -Wno-error=deprecated-declarations -Wno-stringop-overflow -Wno-psabi -Wno-error=pedantic -Wno-error=redundant-decls -Wno-error=old-style-cast -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, PERF_WITH_AVX512=1, USE_CUDA=ON, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, 
+
+TorchVision: 0.8.2
+OpenCV: 4.5.5
+MMCV: 1.4.4
+MMCV Compiler: GCC 6.3
+MMCV CUDA Compiler: 10.1
+MMDetection: 2.22.0+ae69ca1
+------------------------------------------------------------
+
+2022-03-17 09:38:45,908 - mmdet - INFO - Distributed training: True
+2022-03-17 09:38:46,258 - mmdet - INFO - Config:
+dataset_type = 'CocoDataset'
+data_root = '/data/public/coco2017/'
+img_norm_cfg = dict(
+    mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
+train_pipeline = [
+    dict(type='LoadImageFromFile', to_float32=True, color_type='color'),
+    dict(type='LoadAnnotations', with_bbox=True),
+    dict(
+        type='PhotoMetricDistortion',
+        brightness_delta=32,
+        contrast_range=(0.5, 1.5),
+        saturation_range=(0.5, 1.5),
+        hue_delta=18),
+    dict(
+        type='RandomCenterCropPad',
+        crop_size=(512, 512),
+        ratios=(0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3),
+        mean=[0, 0, 0],
+        std=[1, 1, 1],
+        to_rgb=True,
+        test_pad_mode=None),
+    dict(type='Resize', img_scale=(512, 512), keep_ratio=True),
+    dict(type='RandomFlip', flip_ratio=0.5),
+    dict(
+        type='Normalize',
+        mean=[123.675, 116.28, 103.53],
+        std=[58.395, 57.12, 57.375],
+        to_rgb=True),
+    dict(type='DefaultFormatBundle'),
+    dict(type='Collect', keys=['img', 'gt_bboxes', 'gt_labels'])
+]
+test_pipeline = [
+    dict(type='LoadImageFromFile', to_float32=True),
+    dict(
+        type='MultiScaleFlipAug',
+        scale_factor=1.0,
+        flip=False,
+        transforms=[
+            dict(type='Resize', keep_ratio=True),
+            dict(
+                type='RandomCenterCropPad',
+                ratios=None,
+                border=None,
+                mean=[0, 0, 0],
+                std=[1, 1, 1],
+                to_rgb=True,
+                test_mode=True,
+                test_pad_mode=['logical_or', 31],
+                test_pad_add_pix=1),
+            dict(type='RandomFlip'),
+            dict(
+                type='Normalize',
+                mean=[123.675, 116.28, 103.53],
+                std=[58.395, 57.12, 57.375],
+                to_rgb=True),
+            dict(type='DefaultFormatBundle'),
+            dict(
+                type='Collect',
+                meta_keys=('filename', 'ori_shape', 'img_shape', 'pad_shape',
+                           'scale_factor', 'flip', 'flip_direction',
+                           'img_norm_cfg', 'border'),
+                keys=['img'])
+        ])
+]
+data = dict(
+    samples_per_gpu=16,
+    workers_per_gpu=4,
+    train=dict(
+        type='RepeatDataset',
+        times=5,
+        dataset=dict(
+            type='CocoDataset',
+            ann_file=
+            '/data/public/coco2017/annotations/instances_train2017.json',
+            img_prefix='/data/public/coco2017/train2017/',
+            pipeline=[
+                dict(
+                    type='LoadImageFromFile',
+                    to_float32=True,
+                    color_type='color'),
+                dict(type='LoadAnnotations', with_bbox=True),
+                dict(
+                    type='PhotoMetricDistortion',
+                    brightness_delta=32,
+                    contrast_range=(0.5, 1.5),
+                    saturation_range=(0.5, 1.5),
+                    hue_delta=18),
+                dict(
+                    type='RandomCenterCropPad',
+                    crop_size=(512, 512),
+                    ratios=(0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3),
+                    mean=[0, 0, 0],
+                    std=[1, 1, 1],
+                    to_rgb=True,
+                    test_pad_mode=None),
+                dict(type='Resize', img_scale=(512, 512), keep_ratio=True),
+                dict(type='RandomFlip', flip_ratio=0.5),
+                dict(
+                    type='Normalize',
+                    mean=[123.675, 116.28, 103.53],
+                    std=[58.395, 57.12, 57.375],
+                    to_rgb=True),
+                dict(type='DefaultFormatBundle'),
+                dict(type='Collect', keys=['img', 'gt_bboxes', 'gt_labels'])
+            ])),
+    val=dict(
+        type='CocoDataset',
+        ann_file='/data/public/coco2017/annotations/instances_val2017.json',
+        img_prefix='/data/public/coco2017/val2017/',
+        pipeline=[
+            dict(type='LoadImageFromFile', to_float32=True),
+            dict(
+                type='MultiScaleFlipAug',
+                scale_factor=1.0,
+                flip=False,
+                transforms=[
+                    dict(type='Resize', keep_ratio=True),
+                    dict(
+                        type='RandomCenterCropPad',
+                        ratios=None,
+                        border=None,
+                        mean=[0, 0, 0],
+                        std=[1, 1, 1],
+                        to_rgb=True,
+                        test_mode=True,
+                        test_pad_mode=['logical_or', 31],
+                        test_pad_add_pix=1),
+                    dict(type='RandomFlip'),
+                    dict(
+                        type='Normalize',
+                        mean=[123.675, 116.28, 103.53],
+                        std=[58.395, 57.12, 57.375],
+                        to_rgb=True),
+                    dict(type='DefaultFormatBundle'),
+                    dict(
+                        type='Collect',
+                        meta_keys=('filename', 'ori_shape', 'img_shape',
+                                   'pad_shape', 'scale_factor', 'flip',
+                                   'flip_direction', 'img_norm_cfg', 'border'),
+                        keys=['img'])
+                ])
+        ]),
+    test=dict(
+        type='CocoDataset',
+        ann_file='/data/public/coco2017/annotations/instances_val2017.json',
+        img_prefix='/data/public/coco2017/val2017/',
+        pipeline=[
+            dict(type='LoadImageFromFile', to_float32=True),
+            dict(
+                type='MultiScaleFlipAug',
+                scale_factor=1.0,
+                flip=False,
+                transforms=[
+                    dict(type='Resize', keep_ratio=True),
+                    dict(
+                        type='RandomCenterCropPad',
+                        ratios=None,
+                        border=None,
+                        mean=[0, 0, 0],
+                        std=[1, 1, 1],
+                        to_rgb=True,
+                        test_mode=True,
+                        test_pad_mode=['logical_or', 31],
+                        test_pad_add_pix=1),
+                    dict(type='RandomFlip'),
+                    dict(
+                        type='Normalize',
+                        mean=[123.675, 116.28, 103.53],
+                        std=[58.395, 57.12, 57.375],
+                        to_rgb=True),
+                    dict(type='DefaultFormatBundle'),
+                    dict(
+                        type='Collect',
+                        meta_keys=('filename', 'ori_shape', 'img_shape',
+                                   'pad_shape', 'scale_factor', 'flip',
+                                   'flip_direction', 'img_norm_cfg', 'border'),
+                        keys=['img'])
+                ])
+        ]))
+evaluation = dict(interval=1, metric='bbox')
+optimizer = dict(type='SGD', lr=0.02, momentum=0.9, weight_decay=0.0001)
+optimizer_config = dict(grad_clip=dict(max_norm=35, norm_type=2))
+lr_config = dict(
+    policy='step',
+    warmup='linear',
+    warmup_iters=1000,
+    warmup_ratio=0.001,
+    step=[18, 24])
+runner = dict(type='EpochBasedRunner', max_epochs=28)
+checkpoint_config = dict(interval=1)
+log_config = dict(interval=50, hooks=[dict(type='TextLoggerHook')])
+custom_hooks = [dict(type='NumClassCheckHook')]
+dist_params = dict(backend='nccl')
+log_level = 'INFO'
+load_from = None
+resume_from = None
+workflow = [('train', 1)]
+opencv_num_threads = 0
+mp_start_method = 'fork'
+model = dict(
+    type='CenterNet',
+    backbone=dict(
+        type='ResNet',
+        depth=18,
+        norm_eval=False,
+        norm_cfg=dict(type='BN'),
+        init_cfg=dict(type='Pretrained', checkpoint='torchvision://resnet18')),
+    neck=dict(
+        type='CTResNetNeck',
+        in_channel=512,
+        num_deconv_filters=(256, 128, 64),
+        num_deconv_kernels=(4, 4, 4),
+        use_dcn=False),
+    bbox_head=dict(
+        type='CenterNetHead',
+        num_classes=80,
+        in_channel=64,
+        feat_channel=64,
+        loss_center_heatmap=dict(type='GaussianFocalLoss', loss_weight=1.0),
+        loss_wh=dict(type='L1Loss', loss_weight=0.1),
+        loss_offset=dict(type='L1Loss', loss_weight=1.0)),
+    train_cfg=None,
+    test_cfg=dict(topk=100, local_maximum_kernel=3, max_per_img=100))
+work_dir = './work_dirs/centernet_resnet18_140e_coco'
+auto_resume = False
+gpu_ids = range(0, 8)
+
+2022-03-17 09:38:46,267 - mmdet - INFO - Set random seed to 1890763366, deterministic: False
+2022-03-17 09:38:46,415 - mmdet - INFO - initialize ResNet with init_cfg {'type': 'Pretrained', 'checkpoint': 'torchvision://resnet18'}
+2022-03-17 09:38:46,415 - mmcv - INFO - load model from: torchvision://resnet18
+2022-03-17 09:38:46,416 - mmcv - INFO - load checkpoint from torchvision path: torchvision://resnet18
+2022-03-17 09:38:46,620 - mmcv - WARNING - The model and loaded state dict do not match exactly
+
+unexpected key in source state_dict: fc.weight, fc.bias
+
+/data/run01/scv6681/project/mmdetection/mmdet/datasets/api_wrappers/coco_api.py:22: UserWarning: mmpycocotools is deprecated. Please install official pycocotools by "pip install pycocotools"
+  UserWarning)
+loading annotations into memory...
+/data/run01/scv6681/project/mmdetection/mmdet/datasets/api_wrappers/coco_api.py:22: UserWarning: mmpycocotools is deprecated. Please install official pycocotools by "pip install pycocotools"
+  UserWarning)
+/data/run01/scv6681/project/mmdetection/mmdet/datasets/api_wrappers/coco_api.py:22: UserWarning: mmpycocotools is deprecated. Please install official pycocotools by "pip install pycocotools"
+  UserWarning)
+loading annotations into memory...loading annotations into memory...
+
+/data/run01/scv6681/project/mmdetection/mmdet/datasets/api_wrappers/coco_api.py:22: UserWarning: mmpycocotools is deprecated. Please install official pycocotools by "pip install pycocotools"
+  UserWarning)
+loading annotations into memory...
+/data/run01/scv6681/project/mmdetection/mmdet/datasets/api_wrappers/coco_api.py:22: UserWarning: mmpycocotools is deprecated. Please install official pycocotools by "pip install pycocotools"
+  UserWarning)
+loading annotations into memory...
+/data/run01/scv6681/project/mmdetection/mmdet/datasets/api_wrappers/coco_api.py:22: UserWarning: mmpycocotools is deprecated. Please install official pycocotools by "pip install pycocotools"
+  UserWarning)
+loading annotations into memory...
+/data/run01/scv6681/project/mmdetection/mmdet/datasets/api_wrappers/coco_api.py:22: UserWarning: mmpycocotools is deprecated. Please install official pycocotools by "pip install pycocotools"
+  UserWarning)
+loading annotations into memory...
+/data/run01/scv6681/project/mmdetection/mmdet/datasets/api_wrappers/coco_api.py:22: UserWarning: mmpycocotools is deprecated. Please install official pycocotools by "pip install pycocotools"
+  UserWarning)
+loading annotations into memory...
+Done (t=17.09s)
+creating index...
+Done (t=16.94s)
+creating index...
+Done (t=17.03s)
+creating index...
+Done (t=17.07s)
+creating index...
+Done (t=17.21s)
+creating index...
+Done (t=17.23s)
+creating index...
+Done (t=17.25s)
+creating index...
+Done (t=17.32s)
+creating index...
+index created!
+index created!
+index created!
+index created!
+index created!
+index created!
+index created!
+index created!
+/data/run01/scv6681/project/mmdetection/mmdet/datasets/api_wrappers/coco_api.py:22: UserWarning: mmpycocotools is deprecated. Please install official pycocotools by "pip install pycocotools"
+  UserWarning)
+loading annotations into memory...
+/data/run01/scv6681/project/mmdetection/mmdet/datasets/api_wrappers/coco_api.py:22: UserWarning: mmpycocotools is deprecated. Please install official pycocotools by "pip install pycocotools"
+  UserWarning)
+loading annotations into memory...
+/data/run01/scv6681/project/mmdetection/mmdet/datasets/api_wrappers/coco_api.py:22: UserWarning: mmpycocotools is deprecated. Please install official pycocotools by "pip install pycocotools"
+  UserWarning)
+/data/run01/scv6681/project/mmdetection/mmdet/datasets/api_wrappers/coco_api.py:22: UserWarning: mmpycocotools is deprecated. Please install official pycocotools by "pip install pycocotools"
+  UserWarning)
+loading annotations into memory.../data/run01/scv6681/project/mmdetection/mmdet/datasets/api_wrappers/coco_api.py:22: UserWarning: mmpycocotools is deprecated. Please install official pycocotools by "pip install pycocotools"
+  UserWarning)
+
+/data/run01/scv6681/project/mmdetection/mmdet/datasets/api_wrappers/coco_api.py:22: UserWarning: mmpycocotools is deprecated. Please install official pycocotools by "pip install pycocotools"
+  UserWarning)
+loading annotations into memory.../data/run01/scv6681/project/mmdetection/mmdet/datasets/api_wrappers/coco_api.py:22: UserWarning: mmpycocotools is deprecated. Please install official pycocotools by "pip install pycocotools"
+  UserWarning)
+loading annotations into memory.../data/run01/scv6681/project/mmdetection/mmdet/datasets/api_wrappers/coco_api.py:22: UserWarning: mmpycocotools is deprecated. Please install official pycocotools by "pip install pycocotools"
+  UserWarning)
+
+loading annotations into memory...loading annotations into memory...
+
+
+loading annotations into memory...
+Done (t=0.43s)
+creating index...
+Done (t=0.43s)Done (t=0.43s)Done (t=0.43s)
+
+
+creating index...creating index...creating index...
+
+
+Done (t=0.43s)
+creating index...
+Done (t=0.43s)
+creating index...
+Done (t=0.43s)
+creating index...
+Done (t=0.44s)
+creating index...
+index created!
+index created!
+index created!index created!
+
+index created!
+index created!
+index created!
+index created!
+2022-03-17 09:39:07,925 - mmdet - INFO - Start running, host: scv6681@g0001, work_dir: /data/run01/scv6681/project/mmdetection/work_dirs/centernet_resnet18_140e_coco
+2022-03-17 09:39:07,926 - mmdet - INFO - Hooks will be executed in the following order:
+before_run:
+(VERY_HIGH   ) StepLrUpdaterHook                  
+(NORMAL      ) CheckpointHook                     
+(LOW         ) DistEvalHook                       
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+before_train_epoch:
+(VERY_HIGH   ) StepLrUpdaterHook                  
+(NORMAL      ) NumClassCheckHook                  
+(NORMAL      ) DistSamplerSeedHook                
+(LOW         ) IterTimerHook                      
+(LOW         ) DistEvalHook                       
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+before_train_iter:
+(VERY_HIGH   ) StepLrUpdaterHook                  
+(LOW         ) IterTimerHook                      
+(LOW         ) DistEvalHook                       
+ -------------------- 
+after_train_iter:
+(ABOVE_NORMAL) OptimizerHook                      
+(NORMAL      ) CheckpointHook                     
+(LOW         ) IterTimerHook                      
+(LOW         ) DistEvalHook                       
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+after_train_epoch:
+(NORMAL      ) CheckpointHook                     
+(LOW         ) DistEvalHook                       
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+before_val_epoch:
+(NORMAL      ) NumClassCheckHook                  
+(NORMAL      ) DistSamplerSeedHook                
+(LOW         ) IterTimerHook                      
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+before_val_iter:
+(LOW         ) IterTimerHook                      
+ -------------------- 
+after_val_iter:
+(LOW         ) IterTimerHook                      
+ -------------------- 
+after_val_epoch:
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+after_run:
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+2022-03-17 09:39:07,926 - mmdet - INFO - workflow: [('train', 1)], max: 28 epochs
+2022-03-17 09:39:07,926 - mmdet - INFO - Checkpoints will be saved to /data/run01/scv6681/project/mmdetection/work_dirs/centernet_resnet18_140e_coco by HardDiskBackend.
+2022-03-17 09:39:31,742 - mmdet - INFO - Epoch [1][50/4582]	lr: 9.990e-04, eta: 16:57:51, time: 0.476, data_time: 0.100, memory: 3532, loss_center_heatmap: 99.2731, loss_wh: 2.8606, loss_offset: 0.4832, loss: 102.6169, grad_norm: 139.8001
+2022-03-17 09:39:51,476 - mmdet - INFO - Epoch [1][100/4582]	lr: 1.998e-03, eta: 15:30:21, time: 0.395, data_time: 0.032, memory: 3532, loss_center_heatmap: 4.2274, loss_wh: 2.7935, loss_offset: 0.3483, loss: 7.3692, grad_norm: 5.1555
+2022-03-17 09:40:11,240 - mmdet - INFO - Epoch [1][150/4582]	lr: 2.997e-03, eta: 15:01:24, time: 0.395, data_time: 0.033, memory: 3532, loss_center_heatmap: 4.0373, loss_wh: 2.8960, loss_offset: 0.2626, loss: 7.1959, grad_norm: 3.2207
+2022-03-17 09:40:31,224 - mmdet - INFO - Epoch [1][200/4582]	lr: 3.996e-03, eta: 14:49:06, time: 0.400, data_time: 0.031, memory: 3532, loss_center_heatmap: 3.8876, loss_wh: 2.8125, loss_offset: 0.2514, loss: 6.9515, grad_norm: 3.0770
+2022-03-17 09:40:51,338 - mmdet - INFO - Epoch [1][250/4582]	lr: 4.995e-03, eta: 14:42:42, time: 0.402, data_time: 0.027, memory: 3532, loss_center_heatmap: 3.7938, loss_wh: 2.8774, loss_offset: 0.2519, loss: 6.9231, grad_norm: 3.6810
+2022-03-17 09:41:10,912 - mmdet - INFO - Epoch [1][300/4582]	lr: 5.994e-03, eta: 14:34:29, time: 0.391, data_time: 0.028, memory: 3532, loss_center_heatmap: 3.6972, loss_wh: 2.8180, loss_offset: 0.2523, loss: 6.7675, grad_norm: 3.0703
+2022-03-17 09:41:31,540 - mmdet - INFO - Epoch [1][350/4582]	lr: 6.993e-03, eta: 14:34:56, time: 0.413, data_time: 0.027, memory: 3532, loss_center_heatmap: 3.6711, loss_wh: 2.7510, loss_offset: 0.2521, loss: 6.6741, grad_norm: 3.1831
+2022-03-17 09:41:51,920 - mmdet - INFO - Epoch [1][400/4582]	lr: 7.992e-03, eta: 14:33:53, time: 0.408, data_time: 0.028, memory: 3532, loss_center_heatmap: 3.6392, loss_wh: 2.7263, loss_offset: 0.2518, loss: 6.6174, grad_norm: 3.1707
+2022-03-17 09:42:11,854 - mmdet - INFO - Epoch [1][450/4582]	lr: 8.991e-03, eta: 14:30:52, time: 0.399, data_time: 0.028, memory: 3532, loss_center_heatmap: 3.6730, loss_wh: 2.2444, loss_offset: 0.2524, loss: 6.1698, grad_norm: 3.3803
+2022-03-17 09:42:31,824 - mmdet - INFO - Epoch [1][500/4582]	lr: 9.990e-03, eta: 14:28:32, time: 0.399, data_time: 0.026, memory: 3532, loss_center_heatmap: 3.6048, loss_wh: 1.2573, loss_offset: 0.2516, loss: 5.1137, grad_norm: 4.5900
+2022-03-17 09:42:51,387 - mmdet - INFO - Epoch [1][550/4582]	lr: 1.099e-02, eta: 14:25:00, time: 0.391, data_time: 0.027, memory: 3532, loss_center_heatmap: 3.5397, loss_wh: 1.1505, loss_offset: 0.2512, loss: 4.9414, grad_norm: 4.4607
+2022-03-17 09:43:10,844 - mmdet - INFO - Epoch [1][600/4582]	lr: 1.199e-02, eta: 14:21:37, time: 0.389, data_time: 0.026, memory: 3532, loss_center_heatmap: 3.5076, loss_wh: 1.1124, loss_offset: 0.2514, loss: 4.8715, grad_norm: 4.3462
+2022-03-17 09:43:30,552 - mmdet - INFO - Epoch [1][650/4582]	lr: 1.299e-02, eta: 14:19:32, time: 0.394, data_time: 0.029, memory: 3532, loss_center_heatmap: 3.5097, loss_wh: 1.0898, loss_offset: 0.2524, loss: 4.8519, grad_norm: 4.2650
+2022-03-17 09:43:50,483 - mmdet - INFO - Epoch [1][700/4582]	lr: 1.399e-02, eta: 14:18:22, time: 0.399, data_time: 0.028, memory: 3532, loss_center_heatmap: 3.4232, loss_wh: 1.0426, loss_offset: 0.2522, loss: 4.7181, grad_norm: 3.7370
+2022-03-17 09:44:10,783 - mmdet - INFO - Epoch [1][750/4582]	lr: 1.499e-02, eta: 14:18:22, time: 0.406, data_time: 0.026, memory: 3532, loss_center_heatmap: 3.4073, loss_wh: 1.0218, loss_offset: 0.2522, loss: 4.6813, grad_norm: 3.9000
+2022-03-17 09:44:30,114 - mmdet - INFO - Epoch [1][800/4582]	lr: 1.598e-02, eta: 14:15:45, time: 0.387, data_time: 0.027, memory: 3532, loss_center_heatmap: 3.4121, loss_wh: 1.0379, loss_offset: 0.2527, loss: 4.7027, grad_norm: 3.8843
+2022-03-17 09:44:49,577 - mmdet - INFO - Epoch [1][850/4582]	lr: 1.698e-02, eta: 14:13:44, time: 0.389, data_time: 0.023, memory: 3532, loss_center_heatmap: 3.4172, loss_wh: 1.0398, loss_offset: 0.2525, loss: 4.7096, grad_norm: 4.1103
+2022-03-17 09:45:08,870 - mmdet - INFO - Epoch [1][900/4582]	lr: 1.798e-02, eta: 14:11:30, time: 0.386, data_time: 0.025, memory: 3532, loss_center_heatmap: 3.3832, loss_wh: 1.0428, loss_offset: 0.2530, loss: 4.6791, grad_norm: 4.1510
+2022-03-17 09:45:28,417 - mmdet - INFO - Epoch [1][950/4582]	lr: 1.898e-02, eta: 14:10:02, time: 0.391, data_time: 0.026, memory: 3532, loss_center_heatmap: 3.2901, loss_wh: 1.0252, loss_offset: 0.2533, loss: 4.5687, grad_norm: 3.4350
+2022-03-17 09:45:48,170 - mmdet - INFO - Exp name: centernet_resnet18_140e_coco.py
+2022-03-17 09:45:48,170 - mmdet - INFO - Epoch [1][1000/4582]	lr: 1.998e-02, eta: 14:09:07, time: 0.395, data_time: 0.027, memory: 3532, loss_center_heatmap: 3.2348, loss_wh: 0.9946, loss_offset: 0.2517, loss: 4.4811, grad_norm: 3.3909
+2022-03-17 09:46:07,755 - mmdet - INFO - Epoch [1][1050/4582]	lr: 2.000e-02, eta: 14:07:56, time: 0.392, data_time: 0.025, memory: 3532, loss_center_heatmap: 3.2094, loss_wh: 0.9972, loss_offset: 0.2506, loss: 4.4572, grad_norm: 3.5052
+2022-03-17 09:46:27,562 - mmdet - INFO - Epoch [1][1100/4582]	lr: 2.000e-02, eta: 14:07:14, time: 0.396, data_time: 0.027, memory: 3532, loss_center_heatmap: 3.1973, loss_wh: 0.9737, loss_offset: 0.2517, loss: 4.4227, grad_norm: 3.8720
+2022-03-17 09:46:47,515 - mmdet - INFO - Epoch [1][1150/4582]	lr: 2.000e-02, eta: 14:06:51, time: 0.399, data_time: 0.025, memory: 3532, loss_center_heatmap: 3.1350, loss_wh: 0.9462, loss_offset: 0.2503, loss: 4.3315, grad_norm: 3.6941
+2022-03-17 09:47:07,045 - mmdet - INFO - Epoch [1][1200/4582]	lr: 2.000e-02, eta: 14:05:43, time: 0.391, data_time: 0.027, memory: 3532, loss_center_heatmap: 3.1726, loss_wh: 0.9013, loss_offset: 0.2511, loss: 4.3250, grad_norm: 3.9825
+2022-03-17 09:47:26,486 - mmdet - INFO - Epoch [1][1250/4582]	lr: 2.000e-02, eta: 14:04:30, time: 0.389, data_time: 0.026, memory: 3532, loss_center_heatmap: 3.1135, loss_wh: 0.8248, loss_offset: 0.2501, loss: 4.1883, grad_norm: 3.5421
+2022-03-17 09:47:46,276 - mmdet - INFO - Epoch [1][1300/4582]	lr: 2.000e-02, eta: 14:03:55, time: 0.396, data_time: 0.026, memory: 3532, loss_center_heatmap: 3.0536, loss_wh: 0.7693, loss_offset: 0.2513, loss: 4.0742, grad_norm: 3.3159
+2022-03-17 09:48:05,810 - mmdet - INFO - Epoch [1][1350/4582]	lr: 2.000e-02, eta: 14:02:58, time: 0.391, data_time: 0.025, memory: 3532, loss_center_heatmap: 3.0416, loss_wh: 0.7671, loss_offset: 0.2511, loss: 4.0598, grad_norm: 3.4215
+2022-03-17 09:48:25,695 - mmdet - INFO - Epoch [1][1400/4582]	lr: 2.000e-02, eta: 14:02:34, time: 0.398, data_time: 0.028, memory: 3532, loss_center_heatmap: 3.0103, loss_wh: 0.7470, loss_offset: 0.2499, loss: 4.0073, grad_norm: 3.5041
+2022-03-17 09:48:45,108 - mmdet - INFO - Epoch [1][1450/4582]	lr: 2.000e-02, eta: 14:01:30, time: 0.388, data_time: 0.029, memory: 3532, loss_center_heatmap: 2.9891, loss_wh: 0.7215, loss_offset: 0.2512, loss: 3.9619, grad_norm: 3.4372
+2022-03-17 09:49:04,835 - mmdet - INFO - Epoch [1][1500/4582]	lr: 2.000e-02, eta: 14:00:55, time: 0.394, data_time: 0.027, memory: 3532, loss_center_heatmap: 2.9915, loss_wh: 0.7393, loss_offset: 0.2492, loss: 3.9800, grad_norm: 3.5751
+2022-03-17 09:49:24,419 - mmdet - INFO - Epoch [1][1550/4582]	lr: 2.000e-02, eta: 14:00:10, time: 0.392, data_time: 0.025, memory: 3532, loss_center_heatmap: 2.9586, loss_wh: 0.6972, loss_offset: 0.2503, loss: 3.9061, grad_norm: 3.3683
+2022-03-17 09:49:43,923 - mmdet - INFO - Epoch [1][1600/4582]	lr: 2.000e-02, eta: 13:59:20, time: 0.390, data_time: 0.027, memory: 3532, loss_center_heatmap: 2.9663, loss_wh: 0.6935, loss_offset: 0.2477, loss: 3.9075, grad_norm: 3.7796
+2022-03-17 09:50:03,536 - mmdet - INFO - Epoch [1][1650/4582]	lr: 2.000e-02, eta: 13:58:40, time: 0.392, data_time: 0.025, memory: 3532, loss_center_heatmap: 2.9048, loss_wh: 0.6716, loss_offset: 0.2486, loss: 3.8250, grad_norm: 3.4213
+2022-03-17 09:50:23,200 - mmdet - INFO - Epoch [1][1700/4582]	lr: 2.000e-02, eta: 13:58:05, time: 0.393, data_time: 0.026, memory: 3532, loss_center_heatmap: 2.8843, loss_wh: 0.6692, loss_offset: 0.2480, loss: 3.8015, grad_norm: 3.3087
+2022-03-17 09:50:42,821 - mmdet - INFO - Epoch [1][1750/4582]	lr: 2.000e-02, eta: 13:57:28, time: 0.392, data_time: 0.026, memory: 3532, loss_center_heatmap: 2.8676, loss_wh: 0.6644, loss_offset: 0.2479, loss: 3.7799, grad_norm: 3.2832
+2022-03-17 09:51:02,525 - mmdet - INFO - Epoch [1][1800/4582]	lr: 2.000e-02, eta: 13:56:57, time: 0.394, data_time: 0.028, memory: 3532, loss_center_heatmap: 2.8393, loss_wh: 0.6682, loss_offset: 0.2458, loss: 3.7532, grad_norm: 3.2861
+2022-03-17 09:51:21,659 - mmdet - INFO - Epoch [1][1850/4582]	lr: 2.000e-02, eta: 13:55:48, time: 0.383, data_time: 0.027, memory: 3532, loss_center_heatmap: 2.8497, loss_wh: 0.6698, loss_offset: 0.2481, loss: 3.7677, grad_norm: 3.4283
+2022-03-17 09:51:41,665 - mmdet - INFO - Epoch [1][1900/4582]	lr: 2.000e-02, eta: 13:55:40, time: 0.400, data_time: 0.029, memory: 3532, loss_center_heatmap: 2.8278, loss_wh: 0.6472, loss_offset: 0.2466, loss: 3.7216, grad_norm: 3.2763
+2022-03-17 09:52:01,485 - mmdet - INFO - Epoch [1][1950/4582]	lr: 2.000e-02, eta: 13:55:19, time: 0.397, data_time: 0.028, memory: 3532, loss_center_heatmap: 2.8087, loss_wh: 0.6453, loss_offset: 0.2466, loss: 3.7006, grad_norm: 3.3839
+2022-03-17 09:52:20,976 - mmdet - INFO - Exp name: centernet_resnet18_140e_coco.py
+2022-03-17 09:52:20,976 - mmdet - INFO - Epoch [1][2000/4582]	lr: 2.000e-02, eta: 13:54:38, time: 0.390, data_time: 0.029, memory: 3532, loss_center_heatmap: 2.7852, loss_wh: 0.6415, loss_offset: 0.2475, loss: 3.6742, grad_norm: 3.1157
+2022-03-17 09:52:40,869 - mmdet - INFO - Epoch [1][2050/4582]	lr: 2.000e-02, eta: 13:54:22, time: 0.398, data_time: 0.026, memory: 3532, loss_center_heatmap: 2.7653, loss_wh: 0.6286, loss_offset: 0.2477, loss: 3.6416, grad_norm: 3.2375
+2022-03-17 09:53:00,047 - mmdet - INFO - Epoch [1][2100/4582]	lr: 2.000e-02, eta: 13:53:23, time: 0.384, data_time: 0.023, memory: 3532, loss_center_heatmap: 2.7744, loss_wh: 0.6339, loss_offset: 0.2465, loss: 3.6548, grad_norm: 3.1358
+2022-03-17 09:53:19,808 - mmdet - INFO - Epoch [1][2150/4582]	lr: 2.000e-02, eta: 13:53:00, time: 0.395, data_time: 0.023, memory: 3532, loss_center_heatmap: 2.7624, loss_wh: 0.6236, loss_offset: 0.2464, loss: 3.6325, grad_norm: 3.3494
+2022-03-17 09:53:39,514 - mmdet - INFO - Epoch [1][2200/4582]	lr: 2.000e-02, eta: 13:52:35, time: 0.394, data_time: 0.026, memory: 3532, loss_center_heatmap: 2.7608, loss_wh: 0.6145, loss_offset: 0.2473, loss: 3.6226, grad_norm: 3.2169
+2022-03-17 09:53:59,071 - mmdet - INFO - Epoch [1][2250/4582]	lr: 2.000e-02, eta: 13:52:01, time: 0.391, data_time: 0.025, memory: 3532, loss_center_heatmap: 2.7362, loss_wh: 0.6285, loss_offset: 0.2456, loss: 3.6103, grad_norm: 3.2657
+2022-03-17 09:54:18,212 - mmdet - INFO - Epoch [1][2300/4582]	lr: 2.000e-02, eta: 13:51:05, time: 0.383, data_time: 0.023, memory: 3532, loss_center_heatmap: 2.7137, loss_wh: 0.6059, loss_offset: 0.2460, loss: 3.5655, grad_norm: 3.3085
+2022-03-17 09:54:37,355 - mmdet - INFO - Epoch [1][2350/4582]	lr: 2.000e-02, eta: 13:50:10, time: 0.383, data_time: 0.025, memory: 3532, loss_center_heatmap: 2.7261, loss_wh: 0.6117, loss_offset: 0.2461, loss: 3.5840, grad_norm: 3.4146
+2022-03-17 09:54:56,551 - mmdet - INFO - Epoch [1][2400/4582]	lr: 2.000e-02, eta: 13:49:20, time: 0.384, data_time: 0.027, memory: 3532, loss_center_heatmap: 2.7208, loss_wh: 0.6062, loss_offset: 0.2458, loss: 3.5728, grad_norm: 3.1980
+2022-03-17 09:55:16,503 - mmdet - INFO - Epoch [1][2450/4582]	lr: 2.000e-02, eta: 13:49:10, time: 0.399, data_time: 0.026, memory: 3532, loss_center_heatmap: 2.6837, loss_wh: 0.6077, loss_offset: 0.2451, loss: 3.5365, grad_norm: 3.1796
+Traceback (most recent call last):
+  File "tools/train.py", line 209, in <module>
+    main()
+  File "tools/train.py", line 205, in main
+    meta=meta)
+  File "/data/run01/scv6681/project/mmdetection/mmdet/apis/train.py", line 208, in train_detector
+    runner.run(data_loaders, cfg.workflow)
+  File "/data/run01/scv6681/project/github/mmcv/mmcv/runner/epoch_based_runner.py", line 127, in run
+    epoch_runner(data_loaders[i], **kwargs)
+  File "/data/run01/scv6681/project/github/mmcv/mmcv/runner/epoch_based_runner.py", line 51, in train
+    self.call_hook('after_train_iter')
+  File "/data/run01/scv6681/project/github/mmcv/mmcv/runner/base_runner.py", line 309, in call_hook
+    getattr(hook, fn_name)(self)
+  File "/data/run01/scv6681/project/github/mmcv/mmcv/runner/hooks/logger/base.py", line 153, in after_train_iter
+    self.log(runner)
+  File "/data/run01/scv6681/project/github/mmcv/mmcv/runner/hooks/logger/text.py", line 235, in log
+    self._dump_log(log_dict, runner)
+  File "/data/run01/scv6681/project/github/mmcv/mmcv/runner/hooks/logger/text.py", line 192, in _dump_log
+    with open(self.json_log_path, 'a+') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/data/run01/scv6681/project/mmdetection/work_dirs/centernet_resnet18_140e_coco/20220317_093845.log.json'
+Traceback (most recent call last):
+  File "/data/home/scv6681/.conda/envs/pool/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/data/home/scv6681/.conda/envs/pool/lib/python3.7/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/data/home/scv6681/.conda/envs/pool/lib/python3.7/site-packages/torch/distributed/launch.py", line 260, in <module>
+    main()
+  File "/data/home/scv6681/.conda/envs/pool/lib/python3.7/site-packages/torch/distributed/launch.py", line 256, in main
+    cmd=cmd)
+subprocess.CalledProcessError: Command '['/data/home/scv6681/.conda/envs/pool/bin/python', '-u', 'tools/train.py', '--local_rank=7', './configs/centernet/centernet_resnet18_140e_coco.py', '--launcher', 'pytorch']' returned non-zero exit status 1.
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
