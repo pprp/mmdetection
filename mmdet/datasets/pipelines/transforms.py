@@ -6,9 +6,10 @@ import warnings
 
 import cv2
 import mmcv
+import numpy
 import numpy as np
 from numpy import random
-
+from PIL import Image
 from mmdet.core import PolygonMasks, find_inside_bboxes
 from mmdet.core.evaluation.bbox_overlaps import bbox_overlaps
 from ..builder import PIPELINES
@@ -2735,3 +2736,68 @@ class YOLOXHSVRandomAug:
         repr_str += f'saturation_delta={self.saturation_delta}, '
         repr_str += f'value_delta={self.value_delta})'
         return repr_str
+
+@PIPELINES.register_module()
+class GridMaskV2:
+    def __init__(self, use_h=True, use_w=True, rotate=1, offset=False, ratio=0.5, mode=1, prob=0.5):
+        self.use_h = use_h
+        self.use_w = use_w
+        self.rotate = rotate
+        self.offset = offset
+        self.ratio = ratio
+        self.mode = mode
+        self.st_prob = prob
+        self.prob = prob
+
+    def __call__(self, results):
+        img = results['img']
+        if numpy.random.rand() > self.prob:
+            return results
+        h = img.shape[0]
+        w = img.shape[1]
+        self.d1 = 2
+        self.d2 = min(h, w)
+        hh = int(1.5 * h)
+        ww = int(1.5 * w)
+        d = numpy.random.randint(self.d1, self.d2)
+        if self.ratio == 1:
+            self.l = numpy.random.randint(1, d)
+        else:
+            self.l = min(max(int(d * self.ratio + 0.5), 1), d - 1)
+        mask = numpy.ones((hh, ww), numpy.float32)
+        st_h = numpy.random.randint(d)
+        st_w = numpy.random.randint(d)
+        if self.use_h:
+            for i in range(hh // d):
+                s = d * i + st_h
+                t = min(s + self.l, hh)
+                mask[s:t, :] *= 0
+        if self.use_w:
+            for i in range(ww // d):
+                s = d * i + st_w
+                t = min(s + self.l, ww)
+                mask[:, s:t] *= 0
+
+        r = numpy.random.randint(self.rotate)
+        mask = Image.fromarray(numpy.uint8(mask))
+        mask = mask.rotate(r)
+        mask = numpy.asarray(mask)
+        mask = mask[(hh - h) // 2:(hh - h) // 2 + h, (ww - w) // 2:(ww - w) // 2 + w]
+
+        mask = mask.astype(numpy.float32)
+        if self.mode == 1:
+            mask = 1 - mask
+
+        # mask = mask.expand_as(img)
+        mask = numpy.expand_dims(mask, 2).repeat(3, axis=2)
+        if self.offset:
+            offset = 2 * (numpy.random.rand(h, w) - 0.5)
+            offset = (1 - mask) * offset
+            img = img * mask + offset
+        else:
+            img = img * mask
+        results['img'] = img
+        return results
+
+    def __repr__(self):
+        return self.__class__.__name__                 
