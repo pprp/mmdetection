@@ -14,3 +14,6 @@ source activate pool
 # 11:30-16:13 
 bash tools/dist_train.sh ./configs/faster_rcnn/faster_rcnn_r50_rf_fpn_1x_coco.py 4
 
+# load weight test
+# bash tools/dist_train.sh ./configs/faster_rcnn/faster_rcnn_r50_rf_fpn_1x_coco_test.py 1
+
