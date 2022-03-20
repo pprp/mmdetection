@@ -21,10 +21,8 @@ class ReceptiveFieldAttention(nn.Module):
         self.C_in = in_channels
         self.conv3x3 = False
         self.reduction = reduction
-        self.genotype = Genotype(normal=[('strippool', 0), ('avg_pool_3x3', 0), 
-                                             ('avg_pool_5x5', 1), ('avg_pool_7x7', 0), ('strippool', 2), ('noise', 1)], 
-                                     normal_concat=range(0, 4)) 
-
+        self.genotype = Genotype(normal=[('max_pool_3x3', 0), ('max_pool_3x3', 0), ('max_pool_5x5', 1), ('max_pool_3x3', 0), ('noise', 2), ('noise', 1)], normal_concat=range(0, 4))
+        
         op_names, indices = zip(*self.genotype.normal)
         concat = self.genotype.normal_concat
 

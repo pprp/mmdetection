@@ -1,5 +1,5 @@
 _base_ = [
-    '../_base_/datasets/coco_detection.py', '../_base_/default_runtime.py'
+    '../_base_/datasets/coco_minidetection.py', '../_base_/default_runtime.py'
 ]
 
 model = dict(
@@ -25,7 +25,7 @@ model = dict(
                  dict(cfg=dict(type='ReceptiveFieldAttention'),
                       stages=(False, False, False, True),
                       position='after_conv3'),],
-        init_cfg=dict(type='Pretrained', checkpoint='torchvision://resnet50')),
+        init_cfg=dict(type='Pretrained', checkpoint='/data/home/scv6681/run/project/mmdetection/work_dirs/resnet50_rf/model_r50_rf.pth.tar')),
     neck=dict(
         type='SSDNeck',
         in_channels=(1024, 2048),

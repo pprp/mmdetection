@@ -11,9 +11,17 @@ source activate pool
 # 11:30-14:00
 # bash tools/dist_train.sh ./configs/ssd/ssd_res50_scratch_600e_coco.py 4
 
+# bash tools/dist_train.sh ./configs/ssd/ssd_res50_rf_scratch_600e_coco.py 1
+
 # 11:30-16:13 
-bash tools/dist_train.sh ./configs/faster_rcnn/faster_rcnn_r50_rf_fpn_1x_coco.py 4
+# bash tools/dist_train.sh ./configs/faster_rcnn/faster_rcnn_r50_rf_fpn_1x_coco.py 4
 
 # load weight test
 # bash tools/dist_train.sh ./configs/faster_rcnn/faster_rcnn_r50_rf_fpn_1x_coco_test.py 1
 
+
+# gridmask + 20% minitrain + full resnet50_rf weights loaded 
+bash tools/dist_train.sh configs/faster_rcnn/loadw_20%_wgridmask_faster_rcnn_r50_rf_fpn_1x_coco.py 4
+
+# without gridmask + 20% minitrain + full resnet50_rf weights loaded 
+# bash tools/dist_train.sh configs/faster_rcnn/loadw_20%_wogridmask_faster_rcnn_r50_rf_fpn_1x_coco.py 4

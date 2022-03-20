@@ -27,7 +27,7 @@ model = dict(
                 stages=(False, False, False, True),
                 position='after_conv3')
         ],
-        init_cfg=dict(type='Pretrained', checkpoint='torchvision://resnet50')),
+        init_cfg=dict(type='Pretrained', checkpoint='/data/home/scv6681/run/project/mmdetection/work_dirs/resnet50_rf/model_r50_rf.pth.tar')),
     neck=dict(
         type='FPN',
         in_channels=[256, 512, 1024, 2048],
@@ -162,8 +162,7 @@ data = dict(
     workers_per_gpu=2,
     train=dict(
         type='CocoDataset',
-        ann_file=
-        '/data/home/scv6681/run/data/subcoco/instances_minitrain2017.json',
+        ann_file='/data/home/scv6681/run/data/subcoco/instances_minitrain2017.json',
         img_prefix='/data/public/coco2017/train2017/',
         pipeline=[
             dict(type='LoadImageFromFile'),
