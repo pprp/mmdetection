@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torch.autograd import Variable
-
+import numpy as np 
 
 class StripPool(nn.Module):
     def __init__(self, in_channels, reduction=2):
@@ -424,17 +424,55 @@ class CBAM(nn.Module):
         return x_out
 
 
+# class NoiseOp(nn.Module):
+#     def __init__(self, stride, mean, std):
+#         super(NoiseOp, self).__init__()
+#         self.stride = stride
+#         self.mean = mean
+#         self.std = std
+
+#     def forward(self, x):
+#         if self.stride != 1:
+#             x_new = x[:, :, :: self.stride, :: self.stride]
+#         else:
+#             x_new = x
+#         noise = Variable(x_new.data.new(x_new.size()).normal_(self.mean, self.std))
+#         return noise
+
+# from noisy darts 
 class NoiseOp(nn.Module):
-    def __init__(self, stride, mean, std):
+    def __init__(self, mean=0.0,factor=1., noise_type='gaussian',noise_mixture="additive", add_noise=True):
         super(NoiseOp, self).__init__()
-        self.stride = stride
+        self.noise_type = noise_type
+        self.factor = factor # factor for std
         self.mean = mean
-        self.std = std
+        self.noise_mixture = noise_mixture
+        self.add_noise = add_noise
+
 
     def forward(self, x):
-        if self.stride != 1:
-            x_new = x[:, :, :: self.stride, :: self.stride]
-        else:
-            x_new = x
-        noise = Variable(x_new.data.new(x_new.size()).normal_(self.mean, self.std))
-        return noise
+        if self.training and self.add_noise:
+            if self.noise_type == 'uniform':
+                # uniform variance is (b-a)^2/12, so a = sqrt(3*factor)
+                # uniform takes between (-1,1) * a
+                a = np.sqrt(3*self.factor)
+                noise = self.mean + (-2 * torch.rand_like(x) + 1) * a
+            elif self.noise_type == 'gaussian':
+                # normal distribution
+                std = x.std() * self.factor if self.noise_mixture == 'additive' else self.factor
+                means = self.mean + torch.zeros_like(x, device=torch.device("cuda"), requires_grad=False)
+                noise = torch.normal(means, std, out=None).cuda()
+            else:
+                assert False, 'Not supported noise type'
+
+            decay_rate = 1
+            
+            if self.noise_mixture == 'additive':
+                x = x + noise * decay_rate
+                # x = noise
+            elif self.noise_mixture == 'multiplicative':
+                x = x * noise * decay_rate
+            else:
+                assert False, 'Not supported noise mixture'
+
+        return x
