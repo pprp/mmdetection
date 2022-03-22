@@ -235,7 +235,7 @@ lr_config = dict(
     warmup_ratio=0.001,
     step=[19, 23])
 runner = dict(type='EpochBasedRunner', max_epochs=24)
-checkpoint_config = dict(interval=1)
+checkpoint_config = dict(interval=1, max_keep_ckpts=1)
 log_config = dict(interval=50, hooks=[dict(type='TextLoggerHook')])
 custom_hooks = [dict(type='NumClassCheckHook')]
 dist_params = dict(backend='nccl')
@@ -245,6 +245,6 @@ resume_from = None
 workflow = [('train', 1)]
 opencv_num_threads = 0
 mp_start_method = 'fork'
-work_dir = './work_dirs/faster_rcnn_r50_rf_fpn_1x_coco'
+# work_dir = './work_dirs/faster_rcnn_r50_rf_fpn_1x_coco'
 auto_resume = False
 gpu_ids = range(0, 4)
