@@ -1,4 +1,5 @@
 from collections import namedtuple
+from platform import node
 
 import torch
 import torch.nn as nn
@@ -9,8 +10,9 @@ from .autorf.spaces import OPS
 
 Genotype = namedtuple("Genotype", "normal normal_concat")
 
-@PLUGIN_LAYERS.register_module() 
+@PLUGIN_LAYERS.register_module()
 class ReceptiveFieldAttention(nn.Module):
+    # update GELU BN 
     def __init__(self, in_channels, steps=3, reduction=4, se=True):
         super(ReceptiveFieldAttention, self).__init__()
         self._ops = nn.ModuleList()
@@ -25,6 +27,10 @@ class ReceptiveFieldAttention(nn.Module):
         
         op_names, indices = zip(*self.genotype.normal)
         concat = self.genotype.normal_concat
+
+        # self.act = nn.GELU() 
+
+        # self.norm = nn.BatchNorm2d(in_channels)
 
         self.bottle = nn.Conv2d(in_channels, in_channels // self.reduction, kernel_size=1,
                                 stride=1, padding=0, bias=False)
@@ -55,9 +61,9 @@ class ReceptiveFieldAttention(nn.Module):
 
     def forward(self, x):
         t = self.bottle(x)
+        # t = self.act(t)
 
         states = [t]
-        offset = 0
 
         total_step = (1+self._steps) * self._steps // 2
 
@@ -74,6 +80,7 @@ class ReceptiveFieldAttention(nn.Module):
             node_out = self.conv3x3(node_out)
         else:
             node_out = self.conv1x1(node_out)
+        # node_out = self.norm(node_out)
 
         # shortcut
         node_out = node_out + x

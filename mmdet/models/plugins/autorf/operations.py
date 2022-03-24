@@ -439,9 +439,9 @@ class CBAM(nn.Module):
 #         noise = Variable(x_new.data.new(x_new.size()).normal_(self.mean, self.std))
 #         return noise
 
-# from noisy darts 
+# from noisy darts
 class NoiseOp(nn.Module):
-    def __init__(self, mean=0.0,factor=1., noise_type='gaussian',noise_mixture="additive", add_noise=True):
+    def __init__(self, mean=0.0, factor=1., noise_type='gaussian',noise_mixture="additive", add_noise=True):
         super(NoiseOp, self).__init__()
         self.noise_type = noise_type
         self.factor = factor # factor for std

@@ -13,7 +13,7 @@ from PIL import Image
 from mmdet.core import PolygonMasks, find_inside_bboxes
 from mmdet.core.evaluation.bbox_overlaps import bbox_overlaps
 from ..builder import PIPELINES
-
+from .compose import Compose as MMDCompose
 try:
     from imagecorruptions import corrupt
 except ImportError:
@@ -2851,3 +2851,127 @@ class MixUpV2:
         self.boxes2 = boxes1
         self.labels2 =  labels1
         return results
+
+#  https://github.com/dereyly/mmdet_sota/blob/master/mmdet/datasets/pipelines/transforms.py
+@PIPELINES.register_module()
+class MosaicV2():
+    def __init__(self, buffer_add_probability = 0.9, max_buffer_size = 4, min_midpoint=0.2, min_fg_cnt=5*5):
+        assert max_buffer_size >= 4, "Buffer size for mosaic should be at least 4!"
+        assert buffer_add_probability > 0, "Probability to add into buffer should be more than zero!"
+        
+        self.max_buffer_size = max_buffer_size
+        self.buffer = []
+        self.buffer_add_probability = buffer_add_probability
+        self.min_midpoint = min_midpoint # from YOLOv4-pytorch implementation
+        self.min_fg_cnt = min_fg_cnt
+    def mosaic(self, results):
+        ori_results = copy.deepcopy(results)
+        
+        # take four images
+        a = self.buffer.pop()
+        b = self.buffer.pop()
+        c = self.buffer.pop()
+        d = self.buffer.pop()
+        
+        #get min shape
+        min_h = min(a['img'].shape[0], b['img'].shape[0], c['img'].shape[0], d['img'].shape[0])
+        min_w = min(a['img'].shape[1], b['img'].shape[1], c['img'].shape[1], d['img'].shape[1])
+        
+        # cropping pipe
+        random_crop = MMDCompose([dict(type='RandomCrop', crop_size = (min_h, min_w))])
+        
+        # crop
+        a, b, c, d = random_crop(a), random_crop(b), random_crop(c), random_crop(d)
+        
+        # check if croppping returns None => see above in the definition of RandomCrop
+        if not a or not b or not c or not d:
+            return results
+        
+        # generate random midpoint
+        cut_x = random.randint(int(min_h * self.min_midpoint), int(min_h * (1 - self.min_midpoint))) ## [h, w, c] -> [x, y]
+        cut_y = random.randint(int(min_w * self.min_midpoint), int(min_w * (1 - self.min_midpoint)))
+        
+        # crop again to mosaic size - now it's not a random crop tho
+        # cropping pipe
+        crop = MMDCompose([dict(type='Crop', crop_size = (cut_x, cut_y), crop_offset = (0, 0))])
+        a = crop(a)
+        crop = MMDCompose([dict(type='Crop', crop_size = (cut_x, min_w - cut_y), crop_offset = (0, cut_y))])
+        b = crop(b)
+        crop = MMDCompose([dict(type='Crop', crop_size = (min_h - cut_x, cut_y), crop_offset = (cut_x, 0))])
+        c = crop(c)
+        crop = MMDCompose([dict(type='Crop', crop_size = (min_h - cut_x, min_w - cut_y), crop_offset = (cut_x, cut_y))])
+        d = crop(d)
+        
+        # check if croppping returns None again
+        if not a or not b or not c or not d:
+            return results
+        
+        # offset bboxes in stacked image
+        def offset_bbox(res_dict, x_offset, y_offset, keys = ['gt_bboxes', 'gt_bboxes_ignore']):
+            for key in keys:
+                if key in res_dict and res_dict[key].size > 0:
+                    res_dict[key][:, 0::2] += x_offset
+                    res_dict[key][:, 1::2] += y_offset
+            return res_dict
+        
+        b = offset_bbox(b, cut_y, 0)
+        c = offset_bbox(c, 0, cut_x)
+        d = offset_bbox(d, cut_y, cut_x)
+        
+        # collect all the data into result
+        top = np.concatenate([a['img'], b['img']], axis = 1)
+        bottom = np.concatenate([c['img'], d['img']], axis = 1)
+        results['img'] = np.concatenate([top, bottom], axis = 0)
+        results['img_shape'] = (min_h * 2, min_w * 2)
+        
+        for key in ['gt_labels', 'gt_bboxes', 'gt_labels_ignore', 'gt_bboxes_ignore']:
+            if key in results:
+                results[key] = np.concatenate([a[key], b[key], c[key], d[key]], axis = 0)
+        
+         
+        # [bug fix] expand mask in stacked image
+        def expand_mask(res_dict, expanded_h, expanded_w, x_offset, y_offset, keys = ['gt_masks', 'gt_masks_ignore']):
+            for key in keys:
+                if key in res_dict :
+                    res_dict[key] = res_dict[key].expand(expanded_h, expanded_w, y_offset, x_offset)
+            return res_dict
+        expand_h, expand_w, _ = results['img'].shape
+       
+        a = expand_mask(a, expand_h, expand_w, 0, 0)
+        b = expand_mask(b, expand_h, expand_w, cut_y, 0)
+        c = expand_mask(c, expand_h, expand_w, 0, cut_x)
+        d = expand_mask(d, expand_h, expand_w, cut_y, cut_x)
+        # [bug fix] collect mask into result
+        for key in ['gt_masks', 'gt_masks_ignore']:
+            if key in results:
+                masks = np.concatenate([a[key].to_ndarray(), b[key].to_ndarray(), c[key].to_ndarray(), d[key].to_ndarray()], axis = 0)
+                results[key] = BitmapMasks(masks, expand_h, expand_w)
+        ## [fix] memory stuck in some models
+        if 'gt_masks' in results:
+            if results['gt_masks'].to_ndarray().sum() < self.min_fg_cnt:
+                # print('==> MosaicV2 got sum of fg mask < ', self.min_fg_cnt, flush=True)
+                return ori_results
+        # tmp = results['img']
+        # for i in range(results['gt_bboxes'].shape[0]):
+        #     import cv2 
+        #     tmp = cv2.rectangle(tmp, (results['gt_bboxes'][i][0], results['gt_bboxes'][i][1]), (results['gt_bboxes'][i][2], results['gt_bboxes'][i][3]), (0, 255, 0), 3)
+        # cv2.imwrite('tmp.jpg', tmp)
+        #plt.imshow(tmp)
+        #plt.show()
+        
+        return results
+        
+    def __call__(self, results):
+        # adding copies of data into buffer
+        if random.random() < self.buffer_add_probability and len(self.buffer) < self.max_buffer_size:
+            self.buffer.append(copy.deepcopy(results))
+            random.shuffle(self.buffer)
+        
+        # if the buffer is full get mosaic
+        if len(self.buffer) == self.max_buffer_size:
+            return self.mosaic(results)
+        return results
+    
+    def __repr__(self):
+        repr_str = self.__class__.__name__
+        return repr_str

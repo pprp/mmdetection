@@ -35,9 +35,12 @@ source activate pool
 # without gridmask + 20% minitrain + full resnet50_rf ssd 40 epoch 
 # bash tools/dist_train.sh configs/ssd/wogridmask_40e_ssd_res50_rf_scratch_coco.py 4 
 
+# without gridmask + 20% minitrain + full resnet50_rf ssd 40 epoch + fix bugs in noiseop
+# bash tools/dist_train.sh configs/ssd/wgridmask_40e_ssd_res50_rf_pretrain_coco_minitrain_fixnoiseop.py 4 --work-dir ./work_dirs/wgridmask_40e_ssd_res50_rf_pretrain_coco_minitrain_fixnoiseop_fixlr
+
 # =======================================================================
 # Faster RCNN 100% COCO with pretrained model
-# bash tools/dist_train.sh configs/faster_rcnn/pretrained_whole_coco_faster_rcnn_r50_rf_fpn_1x_coco.py 8 
+bash tools/dist_train.sh configs/faster_rcnn/pretrained_whole_coco_faster_rcnn_r50_rf_fpn_1x_coco.py 8 
 
 
 # SSD 100% COCO with pretrained model 
