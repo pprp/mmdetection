@@ -173,8 +173,10 @@ data = dict(
         pipeline=[
             dict(type='LoadImageFromFile'),
             dict(type='LoadAnnotations', with_bbox=True),
+            dict(type='RandomAugment'),
             dict(type='Resize', img_scale=(1333, 800), keep_ratio=True),
             dict(type='RandomFlip', flip_ratio=0.5),
+            #dict(type='BBoxJitter', min=0.95, max=1.05),
             dict(
                 type='Normalize',
                 mean=[123.675, 116.28, 103.53],
@@ -239,8 +241,8 @@ lr_config = dict(
     warmup='linear',
     warmup_iters=500,
     warmup_ratio=0.001,
-    step=[19, 23])
-runner = dict(type='EpochBasedRunner', max_epochs=24)
+    step=[9, 11])
+runner = dict(type='EpochBasedRunner', max_epochs=12)
 checkpoint_config = dict(interval=1, max_keep_ckpts=1)
 log_config = dict(interval=50, hooks=[dict(type='TextLoggerHook')])
 custom_hooks = [dict(type='NumClassCheckHook')]

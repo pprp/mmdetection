@@ -10,7 +10,8 @@ from .loading import (LoadAnnotations, LoadImageFromFile, LoadImageFromWebcam,
                       LoadMultiChannelImageFromFiles, LoadPanopticAnnotations,
                       LoadProposals)
 from .test_time_aug import MultiScaleFlipAug
-from .transforms import (MosaicV2, MixUpV2, GridMaskV2, Albu, CutOut, Expand, MinIoURandomCrop, MixUp, Mosaic,
+from .randomaugment import RandomAugment
+from .transforms import ( BBoxJitter, MosaicV2, MixUpV2, GridMaskV2, Albu, CutOut, Expand, MinIoURandomCrop, MixUp, Mosaic,
                          Normalize, Pad, PhotoMetricDistortion, RandomAffine,
                          RandomCenterCropPad, RandomCrop, RandomFlip,
                          RandomShift, Resize, SegRescale, YOLOXHSVRandomAug)
@@ -25,5 +26,5 @@ __all__ = [
     'InstaBoost', 'RandomCenterCropPad', 'AutoAugment', 'CutOut', 'Shear',
     'Rotate', 'ColorTransform', 'EqualizeTransform', 'BrightnessTransform',
     'ContrastTransform', 'Translate', 'RandomShift', 'Mosaic', 'MixUp',
-    'RandomAffine', 'YOLOXHSVRandomAug', 'GridMaskV2', 'MixUpV2', 'MosaicV2'
+    'RandomAffine', 'YOLOXHSVRandomAug', 'GridMaskV2', 'MixUpV2', 'MosaicV2', 'BBoxJitter', 'RandomAugment'
 ]
