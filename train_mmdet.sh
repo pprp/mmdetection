@@ -40,11 +40,14 @@ source activate pool
 
 # =======================================================================
 # Faster RCNN 100% COCO with pretrained model
-bash tools/dist_train.sh configs/faster_rcnn/pretrained_whole_coco_faster_rcnn_r50_rf_fpn_1x_coco.py 8 
+# bash tools/dist_train.sh configs/faster_rcnn/pretrained_whole_coco_faster_rcnn_r50_rf_fpn_1x_coco.py 8 
 # bash tools/dist_train.sh configs/faster_rcnn/faster_rcnn_cbnet_coco_12e.py 8 --work-dir ./work_dirs/faster_rcnn_cbnet_coco_12e
+
+bash tools/dist_train.sh configs/faster_rcnn/faster_rcnn_r50_fpn_2x_coco_iou_ohem.py 8
 
 
 # SSD 100% COCO with pretrained model 
 # bash tools/dist_train.sh configs/ssd/pretrained_whole_20e_ssd_res50_rf_coco.py 8 
 
 # bash tools/dist_train.sh configs/ssd/pretrained_whole_20e_ssd_res50_rf_coco.py 4 --work-dir ./work_dirs/pretrained_whole_20e_ssd_res50_rf_coco_mixup
+

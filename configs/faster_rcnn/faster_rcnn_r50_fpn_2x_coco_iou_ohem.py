@@ -4,7 +4,11 @@ _base_ = [
     '../_base_/schedules/schedule_2x.py', '../_base_/default_runtime.py'
 ]
 model = dict(
-    train_cfg=dict(rcnn=dict(sampler=dict(type='OHEMSampler'))),
+    train_cfg=dict(rcnn=dict(sampler=dict(type='OHEMSampler',
+                num=512,
+                pos_fraction=0.25,
+                neg_pos_ub=-1,
+                add_gt_as_proposals=True))),
     roi_head=dict(
         bbox_head=dict(
             reg_decoded_bbox=True,
