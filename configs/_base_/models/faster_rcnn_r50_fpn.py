@@ -22,7 +22,7 @@ model = dict(
                  dict(cfg=dict(type='ReceptiveFieldAttention'),
                       stages=(False, False, False, True),
                       position='after_conv3'),],
-        init_cfg=dict(type='Pretrained', checkpoint='/data/home/scv6681/run/project/mmdetection/work_dirs/resnet50_rf/model_r50_rf.pth.tar')),
+        init_cfg=dict(type='Pretrained', checkpoint='/data/home/scv6102/run/dpj/mmdetection/model_r50_rf.pth.tar')),
     neck=dict(
         type='FPN',
         in_channels=[256, 512, 1024, 2048],
